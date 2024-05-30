@@ -17,8 +17,8 @@ resource "aws_ecs_task_definition" "service" {
       essential = true
       portMappings = [
         {
-          containerPort = 80
-          hostPort      = 80
+          containerPort = 8000
+          hostPort      = 8000
         }
       ]
     },
@@ -36,11 +36,11 @@ resource "aws_ecs_task_definition" "service" {
   }
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
+resource "aws_s3_bucket" "rahat-ecs-bucket" {
+  bucket = "rahat-ecs-bucket"
 
   tags = {
-    Name        = "My bucket"
+    Name        = "rahat-ecs"
     Environment = "Dev"
   }
 }
